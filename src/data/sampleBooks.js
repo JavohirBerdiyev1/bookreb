@@ -1,4 +1,3 @@
-// src/data/sampleBooks.js
 export const sampleBooks = [
   {
     id: 1,
@@ -84,18 +83,105 @@ export const sampleBooks = [
     description:
       "A novel about the American Dream and class during the Roaring Twenties.",
   },
+  // Qo'shimcha 10 ta kitob
+  {
+    id: 9,
+    title: "O'g'ri",
+    author: "Cho'lpon",
+    cover: "https://kitobxon.com/img_knigi/1541.jpg",
+    language: "uzbek",
+    genre: "short_story",
+    pdfUrl: "https://eduportal.uz/Umumiy/Kutubxona/cholpon.pdf",
+    description: "Cho'lponning eng mashhur hikoyalaridan biri.",
+  },
+  {
+    id: 10,
+    title: "Harry Potter and the Philosopher's Stone",
+    author: "J.K. Rowling",
+    cover: "https://m.media-amazon.com/images/I/81Fyh2mrw4L._AC_UF1000,1000_QL80_.jpg",
+    language: "english",
+    genre: "fantasy",
+    pdfUrl: "https://schoolsites.schoolworld.com/schools/Cheltenham/webpages/cmurphy/files/harry%20potter%20and%20the%20sorcerer's%20stone.pdf",
+    description: "The first novel in the Harry Potter series about a young wizard.",
+  },
+  {
+    id: 11,
+    title: "Ikki eshik orasi",
+    author: "O'tkir Hoshimov",
+    cover: "https://upload.wikimedia.org/wikipedia/uz/6/6d/Ikki_eshik_orasi.jpg",
+    language: "uzbek",
+    genre: "novel",
+    pdfUrl: "https://ipkmvd.uz/media/pdf/kitoblar/Ikki_eshik_orasi_Otkir_Hoshimov_Xo9QkWN.pdf",
+    description: "Oʻzbek adabiyotida sevgi va oila munosabatlariga bagʻishlangan roman.",
+  },
+  {
+    id: 12,
+    title: "The Hobbit",
+    author: "J.R.R. Tolkien",
+    cover: "https://m.media-amazon.com/images/I/710+HcoP38L._AC_UF1000,1000_QL80_.jpg",
+    language: "english",
+    genre: "fantasy",
+    pdfUrl: "https://rsd2-alert-durden-reading-room.weebly.com/uploads/6/7/1/6/6716949/the_hobbit_tolkien.pdf",
+    description: "A fantasy novel about Bilbo Baggins and his journey to reclaim a treasure.",
+  },
+  {
+    id: 13,
+    title: "Dunyoning ishlari",
+    author: "O'tkir Hoshimov",
+    cover: "https://mykitob.uz/wp-content/uploads/2023/11/dunyoning-ishlari.jpg",
+    language: "uzbek",
+    genre: "short_story",
+    pdfUrl: "https://zakm.uz/media/books/O._Hoshimov_Dunyoning_ishlari.pdf",
+    description: "Oʻzbek adabiyotining eng taʼsirli hikoyalar toʻplami.",
+  },
+  {
+    id: 14,
+    title: "The Hunger Games",
+    author: "Suzanne Collins",
+    cover: "https://m.media-amazon.com/images/I/71un2hI4mcL.jpg",
+    language: "english",
+    genre: "dystopian",
+    pdfUrl: "https://archive.org/download/mockingjay-trilogy-the-hunger-games/Mockingjay%20Trilogy%20-%20The%20Hunger%20Games.pdf",
+    description: "A dystopian novel set in a post-apocalyptic society with an annual competition.",
+  },
+  {
+    id: 15,
+    title: "Shaytanat",
+    author: "Tohir Malik",
+    cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1532642636i/40955664.jpg",
+    language: "uzbek",
+    genre: "detective",
+    pdfUrl: "https://staff.tiiame.uz/storage/users/452/books/wl1SFwyxlxAKRMiXrBYCbuEnoWocpspmrqcvNrZg.pdf",
+    description: "Oʻzbek detektiv adabiyotining eng mashhur asari.",
+  },
+  {
+    id: 16,
+    title: "The Da Vinci Code",
+    author: "Dan Brown",
+    cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1720313229i/968.jpg",
+    language: "english",
+    genre: "thriller",
+    pdfUrl: "https://archive.org/details/the-da-vinci-code_202209",
+    description: "A thriller novel combining mystery and conspiracy theories.",
+  },
+  {
+    id: 17,
+    title: "Yulduzli tunlar",
+    author: "Pirimqul Qodirov",
+    cover: "https://barakot.com/image/get-image?imageName=Yulduzli%20tunlar.jpg",
+    language: "uzbek",
+    genre: "historical",
+    pdfUrl: "https://arm.navoiy-uni.uz/wp-content/uploads/2019/04/yulduzli_tunlar_ziyouz_com.pdf",
+    description: "Bobur haqidagi mashhur tarixiy roman.",
+  },
+  {
+    id: 18,
+    title: "A Game of Thrones",
+    author: "George R.R. Martin",
+    cover: "https://cdn.kobo.com/book-images/dd1baacc-184b-4f28-a7d5-6dbe70816fb7/1200/1200/False/a-game-of-thrones.jpg",
+    language: "english",
+    genre: "fantasy",
+    pdfUrl: "https://archive.org/details/a-game-of-thrones-george-r.-r.-martin",
+    description: "The first novel in the epic fantasy series A Song of Ice and Fire.",
+  }
 ];
-
-// src/utils/bookUtils.js
-export const getRecommendations = (book, allBooks) => {
-  if (!book) return [];
-
-  // Bir xil janr va til bo'yicha tavsiyalar
-  return allBooks.filter(
-    (b) =>
-      b.id !== book.id &&
-      (b.genre === book.genre ||
-        b.author === book.author ||
-        b.language === book.language)
-  );
-};

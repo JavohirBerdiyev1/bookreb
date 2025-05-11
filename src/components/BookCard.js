@@ -1,4 +1,3 @@
-// src/components/BookCard.js
 import React from 'react';
 
 const BookCard = ({ book, onClick }) => {

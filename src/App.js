@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { sampleBooks } from './data/sampleBooks';
-import { getRecommendations } from './utils/bookUtils';
+import { getRecommendations, getGenres } from './utils/bookUtils';
 import Header from './components/Header';
 import LanguageFilter from './components/LanguageFilter';
 import BookList from './components/BookList';
@@ -14,14 +14,18 @@ const App = () => {
   const [recommendations, setRecommendations] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterLanguage, setFilterLanguage] = useState("all");
+  const [selectedGenre, setSelectedGenre] = useState("all");
 
   // Kitob tanlanganda tavsiyalarni yangilash
   useEffect(() => {
     if (selectedBook) {
       const recs = getRecommendations(selectedBook, books);
       setRecommendations(recs);
+      // Yangi kitob tanlanganda, kitobning janrini avtomatik tanlash
+      setSelectedGenre(selectedBook.genre);
     } else {
       setRecommendations([]);
+      setSelectedGenre("all");
     }
   }, [selectedBook, books]);
 
@@ -41,10 +45,12 @@ const App = () => {
       <Header searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       
       <main className="container mx-auto p-4">
-        <LanguageFilter 
-          filterLanguage={filterLanguage} 
-          setFilterLanguage={setFilterLanguage} 
-        />
+        {!selectedBook && (
+          <LanguageFilter 
+            filterLanguage={filterLanguage} 
+            setFilterLanguage={setFilterLanguage} 
+          />
+        )}
 
         {selectedBook ? (
           <>
@@ -54,7 +60,9 @@ const App = () => {
             />
             <Recommendations 
               books={recommendations} 
-              onSelectBook={setSelectedBook} 
+              onSelectBook={setSelectedBook}
+              selectedGenre={selectedGenre}
+              setSelectedGenre={setSelectedGenre}
             />
           </>
         ) : (

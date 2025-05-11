@@ -10,3 +10,9 @@ export const getRecommendations = (book, allBooks) => {
         b.language === book.language)
   );
 };
+
+// Janrlar ro'yxatini olish
+export const getGenres = (books) => {
+  const genres = books.map(book => book.genre);
+  return [...new Set(genres)]; // Takrorlanmaydigan qiymatlarni olish
+};
